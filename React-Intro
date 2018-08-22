@@ -1,0 +1,39 @@
+
+5. Manage React Component State with setState.
+Props that are meant to be passed as a collection of static value to the Component not meant to be changed by Component.
+State that are meant to be managed and updated by Component.
+Good one: https://stackoverflow.com/questions/40433463/what-does-calling-super-in-a-react-constructor-do
+
+6. Manage React Component State with setState.
+    update(e) {
+      this.setState({txt: e.target.value});
+    }
+    render() {
+      return (
+        <div>
+          <input type="text" onChange={this.update.bind(this)}/> 
+          <h1> Hello World: {this.state.txt} </h1>
+        </div>
+       
+       )
+    }
+7. State less function component:
+ e.g const Widget = (props) => <input type="text" onChange={props.update}/> 
+8. Use React ref to Get a Reference to Specific Components.
+ -------------
+ <Input ref = {component => this.a = component} updateVal={this.updateVal}/> a = {this.state.a}
+ -------------
+  class Input extends React.Component{
+    render () {
+      return <input ref="input" type="text" onChange={this.props.updateVal}/> 
+    } 
+ } 
+------------ 
+updateVal() {
+  this.setState({a: this.a.refs.input.value });
+}
+9. Understand the React Component Lifecycle Methods
+When component is added to the DOM is called mounting and when its removed is called unmounting.
+  a. componentWillmount()
+  b. componentDidMount()
+  c. componentWillUnmount()
